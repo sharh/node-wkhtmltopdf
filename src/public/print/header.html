@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html style="font-size: 76.8px">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
+    />
+    <meta http-equiv="pragma" content="no-cache" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .bottom-line {
+        margin: 0 6.9%;
+        margin-top: 0.07129rem;
+        height: 0.034194rem;
+        background-color: #f0f0f0;
+      }
+
+      .print-page-top {
+        margin: 0 6.9%;
+        width: 86.2%;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      .print-page-top .print-top-left {
+        font-size: 0;
+      }
+
+      .print-page-top .print-top-left img {
+        width: 2.165323rem;
+        margin-bottom: 0.072581rem;
+      }
+
+      .print-page-top .print-top-left p {
+        font-size: 0.19355rem;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .print-page-top .print-top-right {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+      }
+
+      .print-page-top .print-top-right .print-top-desc {
+        margin-right: 0.100806rem;
+        font-size: 0.20968rem;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .print-page-top .print-top-right .print-top-desc p {
+        margin: 0.05rem 0;
+      }
+
+      .print-page-top .print-top-right .print-top-qr {
+        width: 0.883958rem;
+        height: 0.883958rem;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center;
+        /* -webkit-transform: scale(1.4);
+            transform: scale(1.4); */
+        /* zoom: 1.4; */
+      }
+      .exam-pager-name {
+        font-size: 0.2083rem;
+        line-height: 0.2083rem;
+      }
+      .input-line{
+        display: inline-block;
+        width: 6em;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+      }
+      .hide{
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="print-page-top">
+      <div class="print-top-left">
+        <p id="left-text">我是打印头</p>
+      </div>
+    </div>
+    <div class="bottom-line"></div>
+    <script>
+      // 获取链接参数
+      function getUrlParams(key) {
+        var search = location.search.slice(1);
+        //console.log(search)
+        // 把key和value全部分离成数组每一项，value在key的index+1项
+        var arrTem = search.split("&").join("=").split("=");
+        if (arrTem.indexOf(key) >= 0) {
+          return arrTem[arrTem.indexOf(key) + 1];
+        }
+        return null;
+      }
+      var nowPage = getUrlParams("page") || 1;
+      if(nowPage==1){
+        document.querySelector(".print-top-right").classList.remove("hide")
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html style="font-size: 76.8px;">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .print-page-bottom {
+            margin: 0 6.9%;
+            width: 86.2%;
+            position: relative;
+            height: .578226rem;
+            padding-top: .237903rem;
+            font-size: .209677rem;
+            border-top: 0.024194rem dashed rgba(0, 0, 0, 0.2);
+        }
+
+        .print-page-bottom .bottom-left,
+        .print-page-bottom #bottom-right {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .print-page-bottom #page-code {
+            position: absolute;
+            top: 0;
+            bottom: 0.1rem;
+            left: 0;
+            right: 0;
+            margin: auto;
+            text-align: center;
+            width: 1.048387rem;
+            height: .282258rem;
+            font-weight: bold;
+        }
+
+        .print-page-bottom .bottom-left {
+            float: left;
+        }
+
+        .print-page-bottom #bottom-right {
+            font-size: .145161rem;
+            letter-spacing: 2px;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="print-page-bottom">
+        <div class="bottom-left"></div>
+        <div id="page-code"></div>
+        <div id="bottom-right"></div>
+    </div>
+    <script>
+        // 获取链接参数
+        function getUrlParams(key) {
+            var search = location.search.slice(1);
+            //console.log(search)
+            // 把key和value全部分离成数组每一项，value在key的index+1项
+            var arrTem = search.split("&").join("=").split("=");
+            if (arrTem.indexOf(key) >= 0) {
+                return arrTem[arrTem.indexOf(key) + 1];
+            }
+            return null;
+        }
+        document.getElementById("page-code").innerHTML = getUrlParams("page") || 1;
+        document.getElementById("bottom-right").innerHTML = "共" + getUrlParams("topage") + "页";
+    </script>
+</body>
+
+
+</html>
